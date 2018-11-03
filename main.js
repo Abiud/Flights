@@ -12,5 +12,16 @@ $(document).ready(() => {
     }, function (start, end, label) {
         console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
     });
+
+    $(window).resize(function () {
+        /*If browser resized, check width again */
+        if ($(window).width() < 514) {
+            $('.card').removeClass('fixed-top');
+            $('#chartdiv').removeClass('chart');
+        } else {
+            $('.card').addClass('fixed-top');
+            $('#chartdiv').addClass('chart');
+        }
+    });
 });
 

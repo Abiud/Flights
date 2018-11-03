@@ -1,6 +1,10 @@
-#chartdiv {
+.chart {
     margin-top: 80px;
     -webkit-box-shadow: -2px -2px 23px -5px rgba(0,0,0,0.75);
     -moz-box-shadow: -2px -2px 23px -5px rgba(0,0,0,0.75);
     box-shadow: -2px -2px 23px -5px rgba(0,0,0,0.75);
+}
+
+.places {
+    padding-bottom: 10px;
 }
