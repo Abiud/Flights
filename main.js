@@ -6,6 +6,12 @@ ourRequest.onload = function () {
 };
 ourRequest.send();
 
+$(document).ready(function () {
+    $("button").click(function (e) {
+        e.preventDefault();
+    });
+});
+
 $(document).ready(() => {
     $('input[name="daterange"]').daterangepicker({
         opens: 'left'
