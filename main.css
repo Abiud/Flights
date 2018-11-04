@@ -5,6 +5,18 @@
     box-shadow: -2px -2px 23px -5px rgba(0,0,0,0.75);
 }
 
+#arrow {
+    position: absolute;
+    top: 50%;
+    left: 75%;
+}
+
+#arrow2 {
+    position: absolute;
+    top: 50%;
+    left: 75%;
+}
+
 .overlay {
     opacity: 0.5;
 }
@@ -12,6 +24,14 @@
 
 .places {
     padding-bottom: 15px;
+}
+
+.refund {
+    padding-left: 8px;
+}
+
+label {
+    padding-left: 8px !important;
 }
 
 .range {
