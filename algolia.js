@@ -6,7 +6,7 @@ $('#aa-search-input').autocomplete(
         {
             source: $.fn.autocomplete.sources.hits(index, { hitsPerPage: 5 }),
             //value to be displayed in input control after user's suggestion selection
-            displayKey: 'city',
+            displayKey: 'iata',
             //hash of templates used when rendering dataset
             templates: {
                 //'suggestion' templating function used to render a single suggestion
@@ -24,7 +24,7 @@ $('#aa-search-input2').autocomplete(
         {
             source: $.fn.autocomplete.sources.hits(index, { hitsPerPage: 5 }),
             //value to be displayed in input control after user's suggestion selection
-            displayKey: 'city',
+            displayKey: 'iata',
             //hash of templates used when rendering dataset
             templates: {
                 //'suggestion' templating function used to render a single suggestion

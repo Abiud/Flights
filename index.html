@@ -26,7 +26,7 @@
 <style>
     #chartdiv {
         width: 100%;
-        height: 600px;
+        height: 700px;
     }
 </style>
 
@@ -40,122 +40,16 @@
     crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-JAW99MJVpJBGcbzEuXk4Az05s/XyDdBomFqNlM3ic+I="
     crossorigin="anonymous"></script>
-<!-- Chart code -->
-<script>
-    /**
-     * SVG path for target icon
-     */
-    var targetSVG = "M9,0C4.029,0,0,4.029,0,9s4.029,9,9,9s9-4.029,9-9S13.971,0,9,0z M9,15.93 c-3.83,0-6.93-3.1-6.93-6.93S5.17,2.07,9,2.07s6.93,3.1,6.93,6.93S12.83,15.93,9,15.93 M12.5,9c0,1.933-1.567,3.5-3.5,3.5S5.5,10.933,5.5,9S7.067,5.5,9,5.5 S12.5,7.067,12.5,9z";
 
-    /**
-     * SVG path for plane icon
-     */
-    var planeSVG = "m2,106h28l24,30h72l-44,-133h35l80,132h98c21,0 21,34 0,34l-98,0 -80,134h-35l43,-133h-71l-24,30h-28l15,-47";
-
-    /**
-     * Create the map
-     */
-    var map = AmCharts.makeChart("chartdiv", {
-        "type": "map",
-        "theme": "light",
-
-
-        "dataProvider": {
-            "map": "worldLow",
-            "zoomLevel": 3.5,
-            "zoomLongitude": -55,
-            "zoomLatitude": 42,
-
-            "lines": [{
-                "id": "line1",
-                "arc": -0.85,
-                "alpha": 0.3,
-                "latitudes": [48.8567, 43.8163, 34.3, 23],
-                "longitudes": [2.3510, -79.4287, -118.15, -82]
-            }, {
-                "id": "line2",
-                "alpha": 0,
-                "color": "#000000",
-                "latitudes": [48.8567, 43.8163, 34.3, 23],
-                "longitudes": [2.3510, -79.4287, -118.15, -82]
-            }],
-            "images": [{
-                "svgPath": targetSVG,
-                "title": "Paris",
-                "latitude": 48.8567,
-                "longitude": 2.3510
-            }, {
-                "svgPath": targetSVG,
-                "title": "Toronto",
-                "latitude": 43.8163,
-                "longitude": -79.4287
-            }, {
-                "svgPath": targetSVG,
-                "title": "Los Angeles",
-                "latitude": 34.3,
-                "longitude": -118.15
-            }, {
-                "svgPath": targetSVG,
-                "title": "Havana",
-                "latitude": 23,
-                "longitude": -82
-            }, {
-                "svgPath": planeSVG,
-                "positionOnLine": 0,
-                "color": "#000000",
-                "alpha": 0.1,
-                "animateAlongLine": true,
-                "lineId": "line2",
-                "flipDirection": true,
-                "loop": true,
-                "scale": 0.03,
-                "positionScale": 1.3
-            }, {
-                "svgPath": planeSVG,
-                "positionOnLine": 0,
-                "color": "#585869",
-                "animateAlongLine": true,
-                "lineId": "line1",
-                "flipDirection": true,
-                "loop": true,
-                "scale": 0.03,
-                "positionScale": 1.8
-            }]
-        },
-
-        "areasSettings": {
-            "unlistedAreasColor": "#8dd9ef"
-        },
-
-        "imagesSettings": {
-            "color": "#585869",
-            "rollOverColor": "#585869",
-            "selectedColor": "#585869",
-            "pauseDuration": 0.2,
-            "animationDuration": 2.5,
-            "adjustAnimationSpeed": true
-        },
-
-        "linesSettings": {
-            "color": "#585869",
-            "alpha": 0.4
-        },
-
-        "export": {
-            "enabled": true
-        }
-
-    });
-</script>
 <!-- MAAAAAAAAAAAAAAAAAAAAP EEEENDS-->
 
 
 <body>
 
     <!-- Datepicker -->
-    <div class="card mx-auto fixed-top" style="width: 30rem;">
+    <div id="options" class="card mx-auto fixed-top" style="width: 30rem;">
         <div class="card-header">
-            <h3 class="text-center">Choose dates:</h3>
+            <h3 class="text-center">Choose details:</h3>
         </div>
         <div class="card-body">
             <div class="row places">
@@ -179,20 +73,78 @@
                     </div>
                 </div>
                 <div class="col-sm-4">
-                    <button class="btn btn-success float-right">Search</button>
+                    <button id="search" class="btn btn-success float-right">Search</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DETAILS -->
+    <div id="details" class="card mx-auto fixed-top" style="width: 85%;">
+        <div class="card-header">
+            <h3 class="text-center">Cheapest Flight:</h3>
+        </div>
+        <div class="card-body info">
+            <div id="info-body" class="row">
+                <div class="col-sm-4">
+                    <h5 class="price">Total Price:</h5>
+
+                    <p class="total_price"></p>
+                    <!-- <label for="total">Total:</label> -->
+                    <p class="refund"></p>
+                    <p class="change"></p>
+                </div>
+                <div class="col-sm-4">
+                    <p class="dep1"></p>
+                    <p class="arr1"></p>
+                    <p class="air1"></p>
+                </div>
+                <div class="col-sm-4">
+                    <!-- <h5>Arriving:</h5> -->
+                    <p class="dep2"></p>
+                    <p class="arr2"></p>
+                    <p class="air2"></p>
+                </div>
+                <div hidden>
+                    <p class="dep3"></p>
+                    <p class="arr3"></p>
+                    <p class="air3"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAP appears here -->
+    <div id="chartdiv" class="chart"></div>
+
+    <!-- SPINNER -->
+    <div hidden class="spinner">
+        <div class="double-bounce1"></div>
+        <div class="double-bounce2"></div>
+    </div>
+
+    <!-- Bootstrap modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">No flights available</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    You can try another date or cities.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
                 </div>
             </div>
         </div>
     </div>
 
 
-    <!-- MAP appears here -->
-    <div id="chartdiv" class="chart"></div>
-
-    <div hidden class="spinner">
-        <div class="double-bounce1"></div>
-        <div class="double-bounce2"></div>
-    </div>
 
     <!-- Bootstrap scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"

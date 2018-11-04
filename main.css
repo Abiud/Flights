@@ -17,6 +17,31 @@
 .range {
 }
 
+.total_price {
+    font-weight: bold;
+    color: green;
+    font-size: 24px;
+    padding-left: 8px;
+}
+
+.price {
+    font-weight: bold;
+    padding-left: 8px;
+    font-size: 24px;
+}
+
+.card-body {
+    padding: 1rem !important;
+}
+
+#details {
+display: none;
+}
+
+.info {
+    padding: 2px !important;
+}
+
 .card-header {
     padding: .2rem .25rem !important;
 }
