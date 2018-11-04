@@ -9,14 +9,17 @@ ourRequest.send();
 $(document).ready(function () {
     $("button").click(function (e) {
         e.preventDefault();
+        var url = $("#url").val();
     });
 });
 
+// , function (start, end, label) {
+//     console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+// }
+
 $(document).ready(() => {
     $('input[name="daterange"]').daterangepicker({
-        opens: 'left'
-    }, function (start, end, label) {
-        console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+        opens: 'center'
     });
 
     $(window).resize(function () {

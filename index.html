@@ -153,21 +153,27 @@
 <body>
     <!-- Datepicker -->
     <div class="card mx-auto fixed-top" style="width: 30rem;">
-        <h1 class="text-center">Choose dates:</h1>
-        <div class="row places">
-            <div class="col">
-                <div class="aa-input-container" id="aa-input-container">
-                    <input type="search" id="aa-search-input" class="aa-input-search" placeholder="Search for players or teams..."
-                        name="search" autocomplete="off" />
-                </div>
-                <!-- <textarea class="form-control" rows="5" id="autocomplete-textarea"></textarea> -->
-            </div>
-            <div class="col">
-                <input type="text" class="form-control" placeholder="To">
-            </div>
+        <div class="card-header">
+            <h3 class="text-center">Choose dates:</h3>
         </div>
-        <div class="range mx-auto">
-            <input type="text" name="daterange" class="form-control" />
+        <div class="card-body">
+            <div class="row places">
+                <div class="col-sm-6">
+                    <div class="aa-input-container" id="aa-input-container">
+                        <input type="search" id="aa-search-input" class="aa-input-search" placeholder="From" name="search"
+                            autocomplete="off" />
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="aa-input-container" id="aa-input-container">
+                        <input type="search" id="aa-search-input2" class="aa-input-search" placeholder="To" name="search"
+                            autocomplete="off" />
+                    </div>
+                </div>
+            </div>
+            <div class="range mx-auto">
+                <input id="date" type="text" name="daterange" class="datepick form-control text-center" />
+            </div>
         </div>
     </div>
 
