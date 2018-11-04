@@ -151,6 +151,7 @@
 
 
 <body>
+
     <!-- Datepicker -->
     <div class="card mx-auto fixed-top" style="width: 30rem;">
         <div class="card-header">
@@ -171,8 +172,15 @@
                     </div>
                 </div>
             </div>
-            <div class="range mx-auto">
-                <input id="date" type="text" name="daterange" class="datepick form-control text-center" />
+            <div class="row">
+                <div class="col-sm-8">
+                    <div class="range mx-auto">
+                        <input id="date" type="text" name="daterange" class="datepick form-control text-center" />
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <button class="btn btn-success float-right">Search</button>
+                </div>
             </div>
         </div>
     </div>
@@ -180,6 +188,11 @@
 
     <!-- MAP appears here -->
     <div id="chartdiv" class="chart"></div>
+
+    <div hidden class="spinner">
+        <div class="double-bounce1"></div>
+        <div class="double-bounce2"></div>
+    </div>
 
     <!-- Bootstrap scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
